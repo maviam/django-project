@@ -5,7 +5,10 @@ from django.http import HttpResponse
 def home(request):
     return render(
         request,
-        'recipes/home.html'
+        'recipes/home.html',
+        {
+            'author': 'Marcelo Amorim'
+        }
     )
 
 def about(request):
