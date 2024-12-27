@@ -10,9 +10,3 @@ def home(request):
             'author': 'Marcelo Amorim'
         }
     )
-
-def about(request):
-    return HttpResponse('Page with informations about recipes')
-
-def contacts(request):
-    return HttpResponse('Contacts Page')
