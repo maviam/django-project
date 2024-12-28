@@ -11,8 +11,7 @@
             "request": "launch",
             "program": "${workspaceFolder}\\manage.py",
             "args": [
-                "runserver",
-                "--extensionDevelopmentPath=${workspaceFolder}"
+                "runserver"
             ],
             "django": true
         }
