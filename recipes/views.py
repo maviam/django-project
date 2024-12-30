@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from utils.recipes.factory import make_recipe
 
 # Create your views here.
 def home(request):
     return render(
         request,
         'recipes/pages/home.html',
+        {
+            'recipes': [make_recipe() for _ in range(10)]
+        }
     )
 
 def recipe(request, id_recipe):
@@ -13,6 +17,6 @@ def recipe(request, id_recipe):
         request,
         'recipes/pages/recipe-view.html',
         {
-            'author': 'Marcelo Amorim'
+            'recipe': make_recipe()
         }
     )
