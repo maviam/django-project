@@ -17,6 +17,7 @@ def recipe(request, id_recipe):
         request,
         'recipes/pages/recipe-view.html',
         {
-            'recipe': make_recipe()
+            'recipe': make_recipe(),
+            'is_detail_page': True
         }
     )
