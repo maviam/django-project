@@ -20,7 +20,10 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) # Coloca a data e hora atual e nunca mais é alterada
     updated_at = models.DateTimeField(auto_now=True) # Coloca a data e hora atual e atualiza cada vez que existe uma alteração
     is_published = models.BooleanField(default=False)
-    cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/')
+    cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/', blank=True, default='')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True) # OneToOneField (1 - 1), ForeignKey (1 - N), ManyToManyField( N - N)
     author = models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
+    
+    def __str__(self):
+        return self.title
     
