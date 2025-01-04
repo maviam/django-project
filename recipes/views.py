@@ -25,10 +25,10 @@ def recipe(request, id_recipe):
     )
 
 def category(request, category_id):
-    recipes = Recipe.objects.filter(category__id=category_id).order_by('-id')
+    recipes = Recipe.objects.filter(category__id=category_id, is_published=True).order_by('-id')
     return render(
         request,
-        'recipes/pages/home.html',
+        'recipes/pages/category.html',
         {
             'recipes': recipes
         }
