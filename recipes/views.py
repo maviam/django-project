@@ -15,11 +15,12 @@ def home(request):
     )
 
 def recipe(request, id_recipe):
+    recipe = get_object_or_404(Recipe.objects.filter(pk=id_recipe))
     return render(
         request,
         'recipes/pages/recipe-view.html',
         {
-            'recipe': make_recipe(),
+            'recipe': recipe,
             'is_detail_page': True
         }
     )
